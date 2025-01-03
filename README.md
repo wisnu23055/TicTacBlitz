@@ -1,2 +1,2 @@
 # TicTacBlitz
-game tic tac toe using python
+game tic tac toe using flask python
