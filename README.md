@@ -1,2 +1,2 @@
-# TicTacBlitz
-game tic tac toe using pygame python
+# TicTacBlitz 
+Tic Tac Blitz is a modern twist on the classic Tic Tac Toe game, designed with an engaging graphical interface and fast-paced gameplay. Players can compete against friends or AI in real-time, featuring a dynamic scoreboard and captivating visual effects. The goal is to provide casual entertainment, enhance strategic and logical thinking skills, and offer a family-friendly game suitable for all audiences. Its target market includes all age groups, especially children and teenagers, laptop or desktop users, casual gamers, and educational users interested in learning basic Python coding through a game.
