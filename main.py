@@ -1,4 +1,50 @@
+import pygame
+import sys
+import random
+from abc import ABC, abstractmethod  # Untuk abstraksi
 
+# Kelas abstrak untuk pemain, menyediakan struktur dasar untuk simbol dan metode langkah pemain
+class PlayerBase(ABC):
+    def __init__(self, symbol):
+        # Inisialisasi simbol pemain ('X' atau 'O')
+        self._symbol = symbol  # Encapsulation dengan atribut protected
+
+    @property
+    def symbol(self):
+        # Properti untuk mendapatkan simbol pemain
+        return self._symbol
+
+    @abstractmethod
+    def make_move(self, board):
+        # Metode abstrak untuk langkah pemain, harus diimplementasikan oleh subkelas
+        pass
+
+
+# Kelas pemain manusia
+class Player(PlayerBase):
+    def make_move(self, board):
+        # Pemain manusia tidak otomatis mengambil langkah, bergantung pada input pengguna
+        pass
+
+
+# Kelas pemain AI, memiliki logika otomatis untuk membuat langkah
+class AI(PlayerBase):
+    def make_move(self, board):
+        # AI memilih sel kosong secara acak untuk langkahnya
+        empty_cells = [(r, c) for r in range(3) for c in range(3) if board.grid[r][c] == ""]
+        if empty_cells:
+            row, col = random.choice(empty_cells)
+            board.mark_cell(row, col, self.symbol)
+
+
+# Kelas untuk merepresentasikan papan permainan Tic Tac Toe
+class Board:
+    def __init__(self):
+        # Inisialisasi papan sebagai grid kosong dan properti visual
+        self._grid = [["" for _ in range(3)] for _ in range(3)]  # Grid papan 3x3
+        self.cell_size = 200  # Ukuran setiap sel dalam piksel
+        self.line_color = (0, 0, 0)  # Warna garis papan
+        self.font = pygame.font.Font(None, 100)  # Font untuk simbol pemain
 
     @property
     def grid(self):
